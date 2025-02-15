@@ -5,9 +5,10 @@ import React, {FC} from 'react';
 interface Props {
     pg: number,
     pathname: string,
+    lastPage: number
 }
 
-const PaginationComp: FC<Props> = ({pg, pathname}) => {
+const PaginationComp: FC<Props> = ({pg, pathname, lastPage}) => {
 
     const page = (pg? pg : 1);
     return (
@@ -17,7 +18,7 @@ const PaginationComp: FC<Props> = ({pg, pathname}) => {
                     <Link  href={`/${pathname}?page=${page > 1 ? page - 1 : 1}`}>prev</Link>
                 </button>
 
-                <button disabled={page == 13}>
+                <button disabled={page == lastPage}>
                     <Link  href={`/${pathname}?page=${page < 1 ? 1 : +page + 1}`}>next</Link>
                 </button>
             </div>

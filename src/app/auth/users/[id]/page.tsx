@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {loadAuthUser} from "@/services/users.service";
 import {SearchParams} from "next/dist/server/request/search-params";
 import {loadAllAuthRecipes} from "@/services/recipes.service";
+import {RecipeComponent} from "@/components/recipe/RecipeComponent";
 
 type Props = {
     params: Promise<{id: string}>;
@@ -30,9 +31,7 @@ const UserPage :FC<Props> = async({params}) => {
                 <p>Height: {user.height} Weight: {user.weight}</p></div>)
             }
             <div className='recipeComp'>
-                {id && recipes.map(recipe => (recipe.userId === +id ? (
-                    <div key={recipe.id}>{recipe.userId}-{recipe.name}
-                        <img src={recipe.image} alt={recipe.name}/></div>) : null))}</div>
+                {id && recipes.map(recipe => (recipe.userId === +id ? (<RecipeComponent key={recipe.id} recipe={recipe} />) : null))}</div>
         </div>
     );
 };

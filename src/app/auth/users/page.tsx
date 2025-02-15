@@ -13,7 +13,7 @@ const UsersPage:FC<Props> = async({searchParams}) => {
     return (
         <div>
             <UsersComponent page={Number(sp.page)}/>
-            <PaginationComp pg={Number(sp.page)} pathname={'auth/users'}/>
+            <PaginationComp pg={Number(sp.page)} pathname={'auth/users'} lastPage={13}/>
         </div>
     );
 };

@@ -2,15 +2,18 @@ import Link from "next/link";
 import {getCookie} from "cookies-next";
 import {cookies} from "next/headers";
 
-export const Menu = async() => {
-    const user =await getCookie('user', {cookies});
+export const Menu = async () => {
+
+    const user = await getCookie('user', {cookies});
+
     // useEffect(() => {
+    //     console.log('hello')
     //     if (!user) {
     //         setIsAuthenticated(false);
     //     } else {
     //         setIsAuthenticated(true);
     //     }
-    // }, [user]);
+    // }, [user, window.location.pathname]);
     return (
         <>
             {

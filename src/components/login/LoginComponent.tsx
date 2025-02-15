@@ -6,12 +6,11 @@ import {useRouter} from "next/navigation";
 
 export const LoginComponent = () => {
 const router = useRouter();
-    const {register, handleSubmit} = useForm<LoginDataType>();
-    const handler = async({username, password}:LoginDataType)=> {
-         await login({ username, password, expiresInMins: 30 });
-         router.push('/auth/users')
+const {register, handleSubmit} = useForm<LoginDataType>();
+const handler = async({username, password}:LoginDataType)=> {
+    await login({ username, password, expiresInMins: 30 });
+    router.push('/auth/users');
     }
-
     return (
         <div className='div'>
             <h2 className='text'>Login Form</h2>
