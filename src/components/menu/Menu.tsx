@@ -5,7 +5,7 @@ import {cookies} from "next/headers";
 export const Menu = async () => {
 
     const user = await getCookie('user', {cookies});
-
+    
     // useEffect(() => {
     //     console.log('hello')
     //     if (!user) {

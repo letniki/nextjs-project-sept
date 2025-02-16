@@ -1,3 +1,4 @@
+'use server'
 import {IUsersResponseModelType} from "@/models/IUsersResponseModelType";
 import {IUser} from "@/models/IUser";
 import {axiosInstance} from "@/services/api.service";
@@ -22,11 +23,13 @@ export const loadAuthUser =async (id: string):Promise<IUser> =>{
 }
 
 export const searchUsersByIdOrName = async (query: string): Promise<IUser[]>=>{
+    await addHeadersGet();
     if(!isNaN(Number(query))  && (Number(query) > 0) && (Number(query) <= 208)){
-        const user = await loadAuthUser(query);
+        const {data: user} = await axiosInstance.get<IUser>(`/users/${query}`);
         return [user];
     } else {
-        const {data: {users}}  = await axiosInstance.get<IUsersResponseModelType>(`/users/search?q=${query}`);
+        const limit: number=208;
+        const {data: {users}}  = await axiosInstance.get<IUsersResponseModelType>(`/users/search?q=${query}`+ '&limit=' + limit);
         return users;
     }
 }

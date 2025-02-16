@@ -8,7 +8,7 @@ export const axiosInstance = axios.create({
 
 // axiosInstance.interceptors.request.use((requestObject)=>{
 //     if(requestObject.method?.toUpperCase() === 'GET'){
-//         requestObject.headers.Authorization = 'Bearer ' + getCookie('user', {cookies})
+//         requestObject.headers.Authorization = 'Bearer ' + cookies().get('user')?.value
 //     }
 //     return requestObject;
 // })

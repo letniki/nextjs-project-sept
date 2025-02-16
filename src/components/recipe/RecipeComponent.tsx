@@ -10,7 +10,7 @@ export const RecipeComponent = ({recipe}:IRecipeProps) => {
             <Link className='recipeLink' href={`/auth/recipes/${recipe.id}`}><h3>{recipe.id}. {recipe.name}</h3>
                 <img className='recipeImage' src={recipe.image} alt={recipe.name}/></Link>
             <div className='linkToRecipesByTag'>{
-                recipe.tags.map((tag, index)=><div key={index}><Link  className='recipeLink' href={'/auth/recipes/tag/'+ tag}>{tag}</Link></div>)
+                recipe.tags.map((tag, index)=><div key={index}><Link  className='recipeLink' href={`/auth/recipes/tag/${tag}`}>{tag}</Link></div>)
             }</div>
         </div>
     );

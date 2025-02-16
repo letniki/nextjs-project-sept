@@ -1,11 +1,10 @@
 import {FC} from "react";
-import {SearchParams} from "next/dist/server/request/search-params";
 
 import PaginationComp from "@/components/pagination/PaginationComp";
 import RecipesComponent from "@/components/recipes/RecipesComponent";
 
 type Props = {
-    searchParams: Promise<SearchParams>
+    searchParams: Promise<{[key: string]: string | string[] | undefined }>
 }
 
 const RecipesPage: FC<Props> = async ({searchParams}) => {

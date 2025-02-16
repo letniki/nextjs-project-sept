@@ -1,8 +1,6 @@
 import {axiosInstance} from "@/services/api.service";
 import {IRecipesResponseModelType} from "@/models/IRecipesResponseModelType";
 import {IRecipe} from "@/models/IRecipe";
-import {getCookie} from "cookies-next";
-import {cookies} from "next/headers";
 import {addHeadersGet} from "@/services/helpers";
 
 export const loadAuthRecipes = async (page: number): Promise<IRecipe[]> =>{
@@ -17,9 +15,8 @@ export const loadAuthRecipes = async (page: number): Promise<IRecipe[]> =>{
     return recipes;
 }
 export const loadAllAuthRecipes = async (): Promise<IRecipe[]> =>{
-    const token = await getCookie('user', {cookies});
-    const headers = {Authorization: `Bearer ${token}`};
-    const {data: {recipes}} = await axiosInstance.get<IRecipesResponseModelType>('/recipes' + '?limit=' + 50, {headers});
+    await addHeadersGet()
+    const {data: {recipes}} = await axiosInstance.get<IRecipesResponseModelType>('/recipes' + '?limit=' + 50);
     return recipes;
 }
 
@@ -28,7 +25,19 @@ export const loadAuthRecipe =async (id: string):Promise<IRecipe> =>{
     const {data} = await axiosInstance.get<IRecipe>(`/recipes/${id}`);
     return data;
 }
-export const getRecipesByTag = async (tag: string): Promise<IRecipe[]> =>{
+export const getRecipesByTag = async (tag: string, page:number): Promise<IRecipe[]> =>{
+    await addHeadersGet();
+    if(page<0){
+        const {data: {recipes}} = await axiosInstance.get<IRecipesResponseModelType>('/recipes/tag/' + tag + '?limit=' + 5);
+        return recipes;
+    }
+    const limit: number = 5;
+    const skip: number = limit * (page) - limit;
+    const {data: {recipes}} = await axiosInstance.get<IRecipesResponseModelType>('/recipes/tag/' + tag + '?limit=' + limit + '&skip=' + skip);
+    return recipes;
+}
+export const getAllRecipesByTag = async (tag: string): Promise<IRecipe[]> =>{
+    await addHeadersGet();
     const {data: {recipes}} = await axiosInstance.get<IRecipesResponseModelType>('/recipes/tag/' + tag);
     return recipes;
 }
