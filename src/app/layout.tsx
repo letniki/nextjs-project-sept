@@ -1,7 +1,6 @@
 import type {Metadata} from "next";
 import "./globals.css";
 import {Menu} from "@/components/menu/Menu";
-import {Router} from "react-router-dom";
 
 export const metadata: Metadata = {
   title: "DummyJSON",

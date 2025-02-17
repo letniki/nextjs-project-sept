@@ -14,6 +14,7 @@ const RecipesByTagPage:FC<Props> = async ({params, searchParams}) => {
     const sp = await searchParams;
     const recipes = await getAllRecipesByTag(tag);
     const lastPage = Math.floor(recipes.length/5 +1);
+    console.log(recipes)
     console.log(Math.floor(recipes.length / 5 + 1));
     console.log(recipes);
     return (
