@@ -1,6 +1,5 @@
 import React from "react";
 import {IUser} from "@/models/IUser";
-import './UserCardComponent.css'
 type IUserCardProps = {
     user:IUser
 }

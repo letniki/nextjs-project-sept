@@ -3,7 +3,7 @@ import {loadAuthUser} from "@/services/users.service";
 import {loadAllAuthRecipes} from "@/services/recipes.service";
 import {RecipeComponent} from "@/components/recipe/RecipeComponent";
 import UserCardComponent from "@/components/userCard/UserCardComponent";
-
+import './UserPage.css'
 type Props = {
     params: Promise<{id: string}>;
 }

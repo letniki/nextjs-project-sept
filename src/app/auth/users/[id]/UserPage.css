@@ -1,3 +1,9 @@
+.recipeComp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 .box{
     width:100%;
     display:flex;
@@ -6,10 +12,4 @@
     justify-content: center;
     color: darkblue;
     align-content: space-evenly;
-}
-.recipeComp{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
 }
