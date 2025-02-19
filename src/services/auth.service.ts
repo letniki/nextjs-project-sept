@@ -7,7 +7,7 @@ import {cookies} from "next/headers";
 
 export const login = async ({username, password, expiresInMins}:LoginDataType): Promise<IUserWithTokens> =>{
     const {data: userWithTokens} = await axiosInstance.post<IUserWithTokens>('/login', {username, password, expiresInMins});
-    await setCookie('user', userWithTokens.accessToken, {cookies});
+    await setCookie('accessToken', userWithTokens.accessToken, {cookies});
     await setCookie('refreshToken', userWithTokens.refreshToken, {cookies});
     return userWithTokens;
 }

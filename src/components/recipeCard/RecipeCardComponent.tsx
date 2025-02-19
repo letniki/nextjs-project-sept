@@ -10,7 +10,7 @@ export const RecipeCardComponent = ({recipe}: IRecipeCardProps) => {
 
             <div className='recipeCardBox'>
                 <h2>{recipe.id}. {recipe.name} </h2>
-                <Link className='userCardLink' href={`/auth/users/${recipe.userId}`}><h3>UserId :{recipe.userId}</h3>
+                <Link className='userCardLink' href={`/auth/users/${recipe.userId}`}><h3>UserId: {recipe.userId}</h3>
                 </Link>
 
                 <div>

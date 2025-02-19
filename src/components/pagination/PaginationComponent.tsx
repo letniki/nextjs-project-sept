@@ -14,11 +14,11 @@ const PaginationComponent: FC<Props> = ({pg, pathname, lastPage}) => {
     return (
         <div className='pagination'>
                 <button className='button' disabled={page === 1}>
-                    <Link className='Link' href={`/${pathname}?page=${page > 1 ? page - 1 : 1}`}>PREV</Link>
+                    <Link className='Link' href={`/${pathname}?page=${page > 1 ? page - 1 : 1}`}>Previous</Link>
                 </button>
                 <h3 className='h3'>You are on {page} page</h3>
                 <button className='button' disabled={page === lastPage}>
-                    <Link className='Link' href={`/${pathname}?page=${(page < 1 || page == lastPage) ? page : +page + 1}`}>NEXT</Link>
+                    <Link className='Link' href={`/${pathname}?page=${(page < 1 || page == lastPage) ? page : +page + 1}`}>Next</Link>
                 </button>
         </div>
     );

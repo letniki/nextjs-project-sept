@@ -6,7 +6,7 @@ import {IUser} from "@/models/IUser";
 import "@/components/menu/Menu.css"
 export const Menu = async () => {
 
-    const token = await getCookie('user', {cookies});
+    const token = await getCookie('accessToken', {cookies});
     let user: IUser | undefined = undefined;
     if(token){
         user = await getLoginedUser();

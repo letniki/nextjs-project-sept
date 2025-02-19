@@ -9,7 +9,7 @@ export const LoginComponent = () => {
 const router = useRouter();
 const {register, handleSubmit} = useForm<LoginDataType>();
 const handler = async({username, password}:LoginDataType)=> {
-    const userWithTokens = await login({ username, password, expiresInMins: 30 });
+    const userWithTokens = await login({ username, password, expiresInMins: 60});
     if(userWithTokens){
         router.push('/auth/users');
     }
