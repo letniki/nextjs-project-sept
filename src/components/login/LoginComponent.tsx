@@ -3,15 +3,14 @@ import {useForm} from "react-hook-form";
 import {LoginDataType} from "@/models/LoginDataType";
 import {login} from "@/services/auth.service";
 import {useRouter} from "next/navigation";
-import {RefreshTokenInterval} from "@/services/helpers";
+import '@/components/login/LoginComponent.css'
 
 export const LoginComponent = () => {
 const router = useRouter();
 const {register, handleSubmit} = useForm<LoginDataType>();
 const handler = async({username, password}:LoginDataType)=> {
-    const userWithTokens = await login({ username, password, expiresInMins: 1 });
+    const userWithTokens = await login({ username, password, expiresInMins: 30 });
     if(userWithTokens){
-        RefreshTokenInterval();
         router.push('/auth/users');
     }
 }

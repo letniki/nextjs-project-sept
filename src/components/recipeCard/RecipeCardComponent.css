@@ -1,0 +1,23 @@
+.image{
+    width: 20vw;
+}
+.recipeCard{
+    display: flex;
+    width: 100vw;
+    color: darkblue;
+}
+.recipeCardBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40vw;
+}
+.userCardLink{
+    text-decoration: none;
+    width: 10vw;
+    display: flex;
+}
+.userCardLink:hover{
+    color: ghostwhite;
+    transition: 0.7s;
+}

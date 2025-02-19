@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {loadAuthRecipe} from "@/services/recipes.service";
-import {RecipeCard} from "@/components/recipeCard/RecipeCard";
+import {RecipeCardComponent} from "@/components/recipeCard/RecipeCardComponent";
 
 type Props = {
     params: Promise<{id: string}>;
@@ -11,7 +11,7 @@ const recipe = await loadAuthRecipe(id);
     return (
         <>
             {
-                recipe && <RecipeCard key={recipe.id} recipe={recipe}/>
+                recipe && <RecipeCardComponent key={recipe.id} recipe={recipe}/>
             }
         </>
     );

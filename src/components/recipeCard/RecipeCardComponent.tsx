@@ -1,10 +1,10 @@
 import Link from "next/link";
 import {IRecipe} from "@/models/IRecipe";
-
+import './RecipeCardComponent.css'
 type IRecipeCardProps = {
     recipe: IRecipe
 }
-export const RecipeCard = ({recipe}: IRecipeCardProps) => {
+export const RecipeCardComponent = ({recipe}: IRecipeCardProps) => {
     return (
         <div className='recipeCard'>
 
@@ -16,8 +16,8 @@ export const RecipeCard = ({recipe}: IRecipeCardProps) => {
                 <div>
                     <img className='image' src={recipe.image} alt={recipe.name}/>
                 </div>
-                {!(recipe.cookTimeMinutes === 0) && <p>Cook time: {recipe.cookTimeMinutes} minutes</p>}
-                {!(recipe.prepTimeMinutes === 0) && <p>Prepare time: {recipe.prepTimeMinutes} minutes</p>}
+                {(recipe.cookTimeMinutes !== 0) && <p>Cook time: {recipe.cookTimeMinutes} minutes</p>}
+                {(recipe.prepTimeMinutes !== 0) && <p>Prepare time: {recipe.prepTimeMinutes} minutes</p>}
                 <div>Difficulty: {recipe.difficulty}</div>
             </div>
             <div>

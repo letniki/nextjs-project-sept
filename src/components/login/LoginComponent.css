@@ -1,0 +1,48 @@
+.div{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+.text{
+    color: darkblue;
+}
+.loginForm{
+    height: 20vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+.input{
+    border-radius: 10px;
+    border:none;
+    display: flex;
+    justify-items: center;
+    color:white;
+    background-color: #3CBC8D;
+}
+input::placeholder{
+    color:white;
+    display: flex;
+    align-items: center;
+}
+.button{
+    border: none;
+    outline: none;
+    background-color: cornflowerblue;
+    height: 2vh;
+    margin-top: 10px;
+    padding:10px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+}
+.button:hover{
+    background-color: #002ead;
+    transition: 0.7s;
+}

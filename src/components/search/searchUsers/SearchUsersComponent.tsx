@@ -3,7 +3,8 @@ import {useForm} from "react-hook-form";
 import {useEffect, useState} from "react";
 import {IUser} from "@/models/IUser";
 import UserComponent from "@/components/user/UserComponent";
-import {searchUsers} from "@/server-actions/ServerActions";
+import {searchUsers} from "@/server-actions/serverActions";
+import '@/components/search/Search.css'
 
 export const SearchUsersComponent = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -17,10 +18,8 @@ export const SearchUsersComponent = () => {
         if(trimmedQuery.length > 1 || !isNaN(Number(trimmedQuery))){
             const users = await searchUsers(trimmedQuery);
             setSearchedUsers(users);
-            console.log(users)
             setCurrentPage(1);
             setTotalPages(Math.ceil(users.length/5));
-            // console.log(totalPages)
         }
     }
 
@@ -30,8 +29,6 @@ export const SearchUsersComponent = () => {
         if(searchedUsers){
             setDisplayedUsers(searchedUsers.slice(startIndex, endIndex));
         }
-        console.log(currentPage);
-        console.log(totalPages)
     }, [currentPage, searchedUsers, totalPages]);
 
     const handleNextPage = () => {
@@ -46,7 +43,7 @@ export const SearchUsersComponent = () => {
         }
     };
     return (
-        <div>
+        <>
             <div className='box'>
                 <form className='form' onSubmit={handleSubmit(handler)}>
                     <input className='inp'
@@ -57,20 +54,21 @@ export const SearchUsersComponent = () => {
                 </form>
             </div>
             {
-                (searchedUsers) && <div className='pagination'>
+                (searchedUsers) && <><div className='usersBox'>
                     {
                         displayedUsers.map(user => <UserComponent key={user.id} user={user}/>)
                     }
-                    {
-                        searchedUsers.length > 1 && <>
-                            <button onClick={handlePreviousPage} disabled={currentPage === 1}>Previous</button>
-                            <h3>You are on {currentPage} page</h3>
-                            <button onClick={handleNextPage} disabled={currentPage >= totalPages}>Next</button>
-                        </>
-                    }
                 </div>
+                    {
+                        searchedUsers.length > 1 && <div className='pagination'>
+                            <button className='button' onClick={handlePreviousPage} disabled={currentPage === 1}>Previous</button>
+                            <h3 className='h3'>You are on {currentPage} page</h3>
+                            <button className='button' onClick={handleNextPage} disabled={currentPage >= totalPages}>Next</button>
+                        </div>
+                    }
+                </>
             }
-        </div>
+        </>
     );
 };
 

@@ -1,0 +1,7 @@
+.usersBox{
+    display: flex;
+    flex-direction: row;
+    align-content: space-evenly;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

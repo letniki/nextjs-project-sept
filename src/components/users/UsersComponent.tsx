@@ -1,7 +1,7 @@
 import {loadAuthUsers} from "@/services/users.service";
 import {FC} from "react";
 import UserComponent from "@/components/user/UserComponent";
-
+import '@/components/users/UsersComponent.css'
 type Props = {
     page: number
 }
@@ -12,12 +12,10 @@ const UsersComponent: FC<Props> = async ({page}) => {
     const  users = await loadAuthUsers(pg);
 
     return (
-        <div>
-            <ul>
+        <div className='usersBox'>
                 {
                     users.map(user => <UserComponent key={user.id} user={user}/>)
                 }
-            </ul>
 </div>
     );
 };

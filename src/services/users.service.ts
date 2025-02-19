@@ -3,7 +3,6 @@ import {IUser} from "@/models/IUser";
 import {axiosInstance} from "@/services/api.service";
 
 export const loadAuthUsers = async (page: string): Promise<IUser[]> =>{
-    // await addHeadersGet();
     if(+page<0){
         const {data:{users}} = await axiosInstance.get<IUsersResponseModelType>('/users');
         return users;
@@ -15,13 +14,11 @@ export const loadAuthUsers = async (page: string): Promise<IUser[]> =>{
 }
 
 export const loadAuthUser =async (id: string):Promise<IUser> =>{
-    // await addHeadersGet();
     const {data} = await axiosInstance.get<IUser>(`/users/${id}`);
     return data;
 }
 
 export const searchUsersByIdOrName = async (query: string): Promise<IUser[]>=>{
-    // await addHeadersGet();
     if(!isNaN(Number(query))  && (Number(query) > 0) && (Number(query) <= 208)){
         const {data: user} = await axiosInstance.get<IUser>(`/users/${query}`);
         return [user];

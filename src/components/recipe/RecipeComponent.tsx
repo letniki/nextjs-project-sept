@@ -1,6 +1,6 @@
 import {IRecipe} from "@/models/IRecipe";
 import Link from "next/link";
-
+import './RecipeComponent.css'
 interface IRecipeProps {
     recipe:IRecipe
 }

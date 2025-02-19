@@ -1,9 +1,10 @@
 import React from "react";
 import {IUser} from "@/models/IUser";
+import './UserCardComponent.css'
 type IUserCardProps = {
     user:IUser
 }
-const UserCard = ({user}: IUserCardProps) => {
+const UserCardComponent = ({user}: IUserCardProps) => {
     return (
         <div>
                 <h1>{user.id}. {user.firstName} {user.lastName}</h1>
@@ -21,4 +22,4 @@ const UserCard = ({user}: IUserCardProps) => {
     );
 };
 
-export default UserCard;
+export default UserCardComponent;

@@ -1,0 +1,47 @@
+.box{
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+.usersBox{
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.form{
+    width: 50%;
+    height: 5vh;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.inp{
+    border-radius: 10px;
+    border:none;
+    height: 2vh;
+    color:white;
+    background-color: #3CBC8D;
+}
+.button{
+    border: none;
+    outline: none;
+    background-color: cornflowerblue;
+    height: 2vh;
+    margin-top: 0;
+    padding:10px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+}
+.button:hover{
+    background-color: #002ead;
+    transition: 0.7s;
+}
+

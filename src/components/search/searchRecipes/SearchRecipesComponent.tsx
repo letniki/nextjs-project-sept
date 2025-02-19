@@ -1,9 +1,10 @@
 'use client'
 import {useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
-import {searchRecipes} from "@/server-actions/ServerActions";
+import {searchRecipes} from "@/server-actions/serverActions";
 import {RecipeComponent} from "@/components/recipe/RecipeComponent";
 import {IRecipe} from "@/models/IRecipe";
+import '@/components/search/Search.css'
 
 export const SearchRecipesComponent = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -17,7 +18,6 @@ export const SearchRecipesComponent = () => {
         if(trimmedQuery.length > 1 || !isNaN(Number(trimmedQuery))){
             const recipes = await searchRecipes(trimmedQuery);
             setSearchedRecipes(recipes);
-            console.log(recipes)
             setCurrentPage(1);
             setTotalPages(Math.ceil(recipes.length/5));
         }
@@ -29,8 +29,6 @@ export const SearchRecipesComponent = () => {
         if(searchedRecipes){
             setDisplayedRecipes(searchedRecipes.slice(startIndex, endIndex));
         }
-        console.log(currentPage);
-        console.log(totalPages)
     }, [currentPage, searchedRecipes, totalPages]);
 
     const handleNextPage = () => {
@@ -45,7 +43,7 @@ export const SearchRecipesComponent = () => {
         }
     };
     return (
-        <div>
+        <>
             <div className='box'>
                 <form className='form' onSubmit={handleSubmit(handler)}>
                     <input className='inp'
@@ -56,20 +54,21 @@ export const SearchRecipesComponent = () => {
                 </form>
             </div>
             {
-                (searchedRecipes) && <div className='pagination'>
+                (searchedRecipes) && <><div className='recipesBox'>
                     {
                         displayedRecipes.map(recipe => <RecipeComponent key={recipe.id} recipe={recipe}/>)
                     }
-                    {
-                        searchedRecipes.length > 1 && <>
-                            <button onClick={handlePreviousPage} disabled={currentPage === 1}>Previous</button>
-                            <h3>You are on {currentPage} page</h3>
-                            <button onClick={handleNextPage} disabled={currentPage >= totalPages}>Next</button>
-                        </>
-                    }
                 </div>
+                    {
+                        searchedRecipes.length > 1 && <div className='pagination'>
+                            <button className='button' onClick={handlePreviousPage} disabled={currentPage === 1}>Previous</button>
+                            <h3 className='h3'>You are on {currentPage} page</h3>
+                            <button className='button' onClick={handleNextPage} disabled={currentPage >= totalPages}>Next</button>
+                        </div>
+                    }
+                </>
             }
-        </div>
+        </>
     );
 };
 

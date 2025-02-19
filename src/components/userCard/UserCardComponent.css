@@ -1,0 +1,15 @@
+.box{
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    color: darkblue;
+    align-content: space-evenly;
+}
+.recipeComp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

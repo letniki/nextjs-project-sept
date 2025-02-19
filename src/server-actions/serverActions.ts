@@ -9,5 +9,4 @@ export const searchUsers = async(formData: string): Promise<IUser[]> =>{
 }
 export const searchRecipes = async(formData: string): Promise<IRecipe[]> =>{
     return await searchRecipesByIdOrQuery(formData);
-
 }

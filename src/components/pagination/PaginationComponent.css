@@ -1,0 +1,32 @@
+.pagination {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.h3{
+    color: red;
+    display:flex;
+    justify-content: center;
+    text-decoration: none;
+}
+.button{
+    border:none;
+    outline: none;
+    color: white;
+    background-color: cornflowerblue;
+    padding: 10px;
+    border-radius: 10px;
+}
+.button:hover{
+    background-color: #002ead;
+    transition: 0.7s;
+}
+.button:disabled{
+    background-color: #b0c4de;
+    color: #7f8c8d;
+}
+.Link{
+    text-decoration: none
+}
