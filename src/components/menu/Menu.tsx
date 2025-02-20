@@ -1,3 +1,4 @@
+'use server'
 import Link from "next/link";
 import {getCookie} from "cookies-next";
 import {cookies} from "next/headers";
